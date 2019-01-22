@@ -1,0 +1,104 @@
+docker pc
+too see command of docker
+
+docker images
+to see images present in local repocitory
+
+donor docker pull {image name}
+download image from docker hub (internet)
+
+docker container ls
+display list of running container in docker
+
+
+docker container run -d alpine sh
+
+
+docker container ls -a
+it display list of all container that runned on docker
+
+
+docker container run -it alpine sh
+run alpine container and enter in their shell
+-it means interactive terminal
+sh  means shell
+
+docker image pull alpine:latest
+download latest image of alpine
+
+
+docker conatainer exec -it vigilant_borg bash Or docker conatainer exec -it {container Name} bash
+enter in shell of running container
+
+docker container stop vigilant_borg 
+stop container that run in background
+
+docker container rm vigilant_borg 
+remove container that run in background
+
+docker image build -t myapp:latest .
+buid  an image from dockerfile
+-t means tag
+{.} means docker file in current directory
+
+
+docker container run -d --name web1 -p 8080:8080 test:latest
+--name means name of container
+-p     port settings 
+first port number is for host 
+second prot number is for container
+test   means image name
+latest means tag for image
+
+docker login
+to login in docker hub
+
+docker tag testapp:latest usamajamil/testapp:latest
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+docker push usamajamil/testapp:latest
+push image to docker hub
+
+docker image build -t sqlserver:v1 .
+sqlserver means image name
+v1        means tag of image
+
+
+docker run --name test-html -d -p 9000:80 testhtml:latest
+9000 means host port 
+80   means container port
+-d   means deamon mode
+
+
+docker container ls
+list of running container
+
+docker container run -it -v /user/document/demov:/test alpine
+-v                     means sync host volume to local to container
+/user/document/demov       host volume
+/test                      containrer Volume
+
+
+docker image rm	$(docker image ls -q)	-f
+remove all images in local repository
+
+docker image ls -q
+return all list of image IDs
+
+$ docker container rm $(docker container ls -aq) -f
+ -f means force so running process in container also be            destroyed
+
+
+docker engine
+?	deamon
+?	containerd
+?	runc
+
+runc 
+
+As	previously	mentioned,	runc	is	the	reference	implementation	of	the	OCI container-runtime-spec.	Docker,	Inc.	was	heavily	involved	in	defining	the	spec and	developing	runc. 
+
+containerd
+ In	order	to	use	runc,	the	Docker	engine	needed	something	to	act	as	a	bridge between	the	daemon	and	runc.	
+
+We	mentioned	earlier	that	containerd	uses	runc	to	create	new	containers.	
